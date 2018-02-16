@@ -1,0 +1,6 @@
+---
+- name: Setup Kubernetes resource files for {{ name }}
+  template:
+    src: "../templates/{{ name }}-{{ item }}.yml"
+    dest: "{{ yamls }}/{{ name }}-{{ item }}.yml"
+    with_items: "{{ files }}"
