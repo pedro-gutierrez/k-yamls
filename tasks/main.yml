@@ -3,4 +3,4 @@
   template:
     src: "../templates/{{ name }}-{{ item }}.yml"
     dest: "{{ yamls }}/{{ name }}-{{ item }}.yml"
-    with_items: "{{ files }}"
+  with_items: "{{ files }}"
