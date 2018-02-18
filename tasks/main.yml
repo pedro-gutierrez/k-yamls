@@ -1,6 +1,15 @@
 ---
-- name: Setup Kubernetes resource files for {{ name }}
+- name: "Generate {{ yamls }}/{{ name }}-{{ item }}.yml"
   template:
     src: "../templates/{{ template }}-{{ item }}.yml"
     dest: "{{ yamls }}/{{ name }}-{{ item }}.yml"
   with_items: "{{ files }}"
+  when: files
+
+- name: "Generate {{ yamls }}/{{ name }}-{{ file }}.yml"
+  template:
+    src: "../templates/{{ template }}.yml"
+    dest: "{{ yamls }}/{{ name }}-{{ file }}.yml"
+  when: file
+
+
