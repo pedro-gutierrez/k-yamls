@@ -7,13 +7,11 @@
   when: files is defined
 
 - name: "Generate Kubernetes {{ file }} files using prefix {{ prefix }}"
-  set_fact:
-    name: "{{ prefix }}-{{ item }}"
   template:
     src: "../templates/{{ template }}-{{ file }}.yml"
-    dest: "{{ yamls }}/{{ prefix }}-{{ item }}-{{ file }}.yml"
-  with_items: "{{ names }}" 
-  when: names is defined and file is defined
+    dest: "{{ yamls }}/{{ prefix }}-{{ item[name.prop] }}-{{ file }}.yml"
+  with_items: "{{ list }}" 
+  when: list is defined
 
 
 
