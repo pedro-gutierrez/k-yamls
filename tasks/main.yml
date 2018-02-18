@@ -6,7 +6,7 @@
   with_items: "{{ files }}"
   when: files is defined
 
-- name: "Generate {{ yamls }}/{{ prefix }}-{{ item }}-{{ file }}.yml"
+- name: "Generate Kubernetes {{ file }} files using prefix {{ prefix }}"
   set_fact:
     name: "{{ prefix }}-{{ item }}"
   template:
