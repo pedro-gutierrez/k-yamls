@@ -12,4 +12,12 @@
     dest: "{{ yamls }}/{{ name }}-{{ file }}.yml"
   when: file is defined
 
+- name: "Generate {{ yamls }}/{{ prefix }}-{{ item }}-{{ file }}.yml"
+  template:
+    src: "../templates/{{ template }}-{{ file }}.yml"
+    dest: "{{ yamls }}/{{ prefix }}-{{ item }}-{{ file }}.yml"
+  with_items: "{{ names }}" 
+  when: names is defined and file is defined
+
+
 
