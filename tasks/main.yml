@@ -10,8 +10,8 @@
   template:
     src: "../templates/{{ template }}-{{ file }}.yml"
     dest: "{{ yamls }}/{{ prefix }}-{{ item[name.prop] }}-{{ file }}.yml"
-  with_items: "{{ list }}" 
-  when: list is defined
+  with_items: "{{ with_list }}" 
+  when: with_list is defined
 
 
 
